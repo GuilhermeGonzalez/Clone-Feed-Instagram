@@ -31,7 +31,7 @@ class Feed extends Component {
         })
 
         socket.on('like', likedPost => {
-            this.state({
+            this.setState({
                 feed: this.state.feed.map(post =>
                     post._id === likedPost._id ? likedPost : post    
                 )
@@ -40,7 +40,7 @@ class Feed extends Component {
     }
 
     handleLike = id =>{
-        api.post(`/post/${id}/like`);
+        api.post(`/posts/${id}/like`);
     }
 
     render(){

@@ -9,14 +9,13 @@ const server = require('http').Server(app);
 const io = require('socket.io')(server);
 
 mongoose.connect('mongodb+srv://nkdz:nkdz@cluster0.8imky.mongodb.net/<dbname>?retryWrites=true&w=majority', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-});
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+}); 
 
 app.use((req, res, next) => {
-    req.io = io;
-
-    next();
+  req.io = io;
+  next();
 });
 
 app.use(cors());
